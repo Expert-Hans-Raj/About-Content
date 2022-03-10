@@ -1,0 +1,63 @@
+<div class="isolate page-width ">
+  <div class="rich-text content-container color- gradient rich-text--full-width  section-{{ section.id }}-padding">
+   {% if section.settings.heading != blank %} 
+    <h2>
+    {{ section.settings.heading }}
+    </h2>
+    {% endif %}
+     {% if section.settings.text != blank %} 
+     <div class="rich-text__text rte">{{ section.settings.text }}</div>
+    {% endif %}
+    <ul class="litext">
+    {%- for block in section.blocks -%}
+      <li class="text_">
+      {{ block.settings.contenttext}}
+      </li>
+    {%- endfor -%}
+    </ul>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "About Content",
+    "settings": [
+{
+"type":"text",
+"id":"heading",
+"label":"Heading ",
+"default":"Our Mission"
+},
+{
+"type":"richtext",
+"id":"text",
+"label":"Content "
+}
+],
+"blocks":[
+{
+"name":"content",
+"type":"content",
+"settings":[
+{
+"type":"text",
+"id":"contenttext",
+"label":" Content",
+"default":"In publishing and graphic design"
+}
+]
+}
+],
+"presets":[
+{
+"name":"About Content",
+"category":"about"
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
